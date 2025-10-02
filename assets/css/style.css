@@ -1,0 +1,180 @@
+/* --- Google Font Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+/* --- Global Variables --- */
+:root {
+  /* Color Palette */
+  --primary-dark: #1B3C53;   
+  --primary-medium: #456882; 
+  --accent-light: #D2C1B6;   
+  --background-light: #F9F3EF;
+  --text-primary: #F9F3EF;   
+  --text-secondary: #1B3C53; 
+  --error-color: #e74c3c;
+
+  /* Font Variables */
+  --font-primary: 'Poppins', sans-serif;
+  --font-size-base: 16px;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  /* Layout Variables */
+  --container-width: 1140px;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.3s ease;
+}
+
+/* --- Base & Reset Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: var(--font-size-base);
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--primary-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* --- Layout --- */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+/* --- Connect Wallet Card --- */
+.connect-card {
+    background-color: var(--primary-medium);
+    padding: 2.5rem 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    border: 1px solid rgba(210, 193, 182, 0.2);
+}
+
+.connect-card__title {
+    font-size: 2rem;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 0.5rem;
+}
+
+.connect-card__subtitle {
+    font-size: 1rem;
+    font-weight: var(--font-weight-light);
+    margin-bottom: 2rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Buttons --- */
+.btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: var(--font-weight-bold);
+    font-size: 1rem;
+    transition: all var(--transition-speed);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn--primary {
+    background-color: var(--accent-light);
+    color: var(--text-secondary);
+}
+
+.btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Utility --- */
+.error-message {
+    margin-top: 1rem;
+    color: var(--error-color);
+    font-size: 0.9rem;
+}
+
+/* =================================
+   Modal Styles
+   ================================= */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.show {
+    display: flex;
+    opacity: 1;
+}
+
+.modal {
+    background-color: var(--bg-color-light);
+    border-radius: 8px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.show .modal {
+    transform: scale(1);
+}
+
+.modal__header {
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    color: var(--text-color-light);
+}
+
+/* Modal Header Variants */
+.modal__header--error {
+    background-color: var(--color-error);
+}
+.modal__header--success {
+    background-color: var(--color-success);
+}
+.modal__header--info {
+    background-color: var(--bg-color-medium);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .connect-card__title {
+        font-size: 1.8rem;
+    }
+    .connect-card__subtitle {
+        font-size: 0.9rem;
+    }
+}

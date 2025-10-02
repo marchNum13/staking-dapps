@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staking DApp</title>
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <main class="container">
+        <div class="connect-card">
+            <header class="connect-card__header">
+                <h1 class="connect-card__title">Staking DApp</h1>
+                <p class="connect-card__subtitle">
+                    Lock your CLK tokens to earn fixed rewards. Connect your wallet to get started.
+                </p>
+            </header>
+            <div class="connect-card__actions">
+                <button id="connectWalletBtn" class="btn btn--primary">
+                    Connect Wallet
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Global Modal Structure -->
+    <div id="modalOverlay" class="modal-overlay">
+        <div id="modal" class="modal">
+            <div id="modalHeader" class="modal__header">
+                <h2 id="modalTitle" class="modal__title">Modal Title</h2>
+                <span id="modalCloseBtn" class="modal__close-btn">&times;</span>
+            </div>
+            <div class="modal__body">
+                <p id="modalMessage" class="modal__message">Modal message goes here.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ethers.js (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <!-- Main Logic Script -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
