@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- ELEMENT REFERENCES ---
     const userAddressEl = document.getElementById('userAddress');
     const disconnectBtn = document.getElementById('disconnectBtn');
+    const disconnectBtnSidebar = document.getElementById('disconnectBtnSidebar');
     const walletBalanceEl = document.getElementById('walletBalance');
     const totalStakedEl = document.getElementById('totalStaked');
     const activeStakesEl = document.getElementById('activeStakes');
@@ -143,6 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
      * Sets up event listeners for the page
      */
     function setupEventListeners() {
+        disconnectBtnSidebar.addEventListener('click', disconnectWallet);
         disconnectBtn.addEventListener('click', disconnectWallet);
         modalCloseBtn.addEventListener('click', hideModal);
         modalOverlay.addEventListener('click', (event) => {
