@@ -8,13 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let contractsConfig;
 
     // --- CONFIGURATION ---
-    const TARGET_NETWORK = {
-        chainId: '0x38', // 56 in decimal for BNB Smart Chain Mainnet
-        chainName: 'BNB Smart Chain',
-        nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 },
-        rpcUrls: ['https://bsc-dataseed.binance.org/'],
-        blockExplorerUrls: ['https://bscscan.com/'],
-    };
+    const TARGET_NETWORK = { chainId: '0x38', chainName: 'BNB Smart Chain' };
 
     // --- CONTRACT ADDRESSES (UPDATE THESE FOR MAINNET) ---
     const CHRONOLOCK_CONTRACT_ADDRESS = "0x2b1eb2Ca46eB3c792A409D7EEa47E6883b6B62Eb"; // Replace with your MAINNET address
