@@ -11,22 +11,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalMessage = document.getElementById('modalMessage');
     const modalCloseBtn = document.getElementById('modalCloseBtn');
 
-
     // --- Configuration for BNB Smart Chain ---
-    // Using testnet for this example, change to mainnet for production
-    const bscTestnet = {
-        chainId: '0x61', // 97 in decimal for BSC Testnet
-        chainName: 'BNB Smart Chain Testnet',
+    const bscMainnet = {
+        chainId: '0x38', // 56 in decimal
+        chainName: 'BNB Smart Chain',
         nativeCurrency: {
-            name: 'tBNB',
-            symbol: 'tBNB',
+            name: 'BNB',
+            symbol: 'BNB',
             decimals: 18,
         },
-        rpcUrls: ['https://data-seed-prebsc-1-s1.binance.org:8545/'],
-        blockExplorerUrls: ['https://testnet.bscscan.com/'],
+        rpcUrls: ['https://bsc-dataseed.binance.org/'],
+        blockExplorerUrls: ['https://bscscan.com/'],
     };
 
-    const targetNetwork = bscTestnet; // Use Testnet for development
+    const targetNetwork = bscMainnet; // Use Testnet for development
 
     // Check if the user was previously connected
     checkConnection();

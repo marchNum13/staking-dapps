@@ -128,3 +128,178 @@ main#connectPage {
   padding: 1.5rem;
   color: var(--text-secondary);
 }
+
+/* --- Styles for Dashboard and App Layout (NEW) --- */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.navbar {
+    background-color: var(--card-background);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.75rem 2rem;
+}
+
+.navbar-brand {
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.navbar-brand:hover {
+    color: var(--secondary-color);
+}
+
+.navbar-nav-centered {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--text-primary);
+}
+
+.wallet-info {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    background-color: rgba(0,0,0,0.2);
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+.wallet-info i {
+    color: var(--primary-color);
+}
+
+.btn-outline-light {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline-light:hover {
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+}
+
+main.container {
+    flex-grow: 1;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
+
+.page-title {
+    font-weight: 700;
+}
+
+.page-subtitle {
+    color: var(--text-secondary);
+}
+
+.stat-card {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 210, 255, 0.1);
+}
+
+.card-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.card-value {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.card-currency {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* ==============================================
+MOBILE RESPONSIVE STYLES 
+==============================================
+*/
+@media (max-width: 991.98px) {
+    /* --- Perbaikan Navbar untuk Mobile --- */
+    .navbar-nav-centered {
+        /* Pindahkan menu ke baris baru di bawah brand/logo */
+        order: 3; /* Urutan flex, agar muncul paling bawah */
+        width: 100%;
+        margin-top: 1rem;
+        justify-content: space-around; /* Sebar menu secara merata */
+    }
+
+    .navbar .container-fluid {
+        flex-wrap: wrap; /* Izinkan item navbar untuk pindah baris */
+        justify-content: space-between; /* Sejajarkan brand dan wallet info */
+    }
+
+    .nav-link {
+        margin: 0 0.5rem; /* Kurangi margin antar link menu */
+        padding: 0.5rem;
+    }
+
+    .d-flex.align-items-center {
+        /* Pastikan wallet info tidak ikut 'terbungkus' ke baris baru jika tidak perlu */
+        order: 2;
+    }
+
+    /* --- Penyesuaian Konten Halaman --- */
+    .app-container, .connect-container {
+        padding: 1rem; /* Kurangi padding di layar kecil */
+    }
+
+    .page-title {
+        font-size: 1.8rem; /* Perkecil judul halaman */
+    }
+
+    /* --- Penyesuaian Kartu Statistik --- */
+    .stat-card {
+        padding: 1rem; /* Kurangi padding di dalam kartu */
+    }
+    
+    .card-value {
+        font-size: 1.8rem; /* Perkecil ukuran angka statistik */
+    }
+}
+
+@media (max-width: 575.98px) {
+    /* --- Style untuk layar sangat kecil (misal: iPhone SE) --- */
+    .wallet-info {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    #userAddress {
+        display: none; /* Sembunyikan alamat lengkap, cukup ikon */
+    }
+}
