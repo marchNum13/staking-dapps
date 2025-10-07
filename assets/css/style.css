@@ -1,180 +1,130 @@
-/* --- Google Font Import --- */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
-
-/* --- Global Variables --- */
+/* --- Root Variables --- */
 :root {
-  /* Color Palette */
-  --primary-dark: #1B3C53;   
-  --primary-medium: #456882; 
-  --accent-light: #D2C1B6;   
-  --background-light: #F9F3EF;
-  --text-primary: #F9F3EF;   
-  --text-secondary: #1B3C53; 
+  --primary-color: #3a7bd5;
+  --secondary-color: #00d2ff;
+  --success-color: #2ecc71;
   --error-color: #e74c3c;
-
-  /* Font Variables */
-  --font-primary: 'Poppins', sans-serif;
-  --font-size-base: 16px;
-  --font-weight-light: 300;
-  --font-weight-regular: 400;
-  --font-weight-bold: 700;
-
-  /* Layout Variables */
-  --container-width: 1140px;
-  --border-radius: 8px;
-  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  --transition-speed: 0.3s ease;
+  --background-start: #0f2027;
+  --background-end: #203a43;
+  --card-background: rgba(255, 255, 255, 0.05);
+  --text-primary: #ffffff;
+  --text-secondary: #bdc3c7;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --font-family: 'Inter', sans-serif;
 }
 
-/* --- Base & Reset Styles --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* --- Base & Body Styles --- */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  background: linear-gradient(135deg, var(--background-start), var(--background-end));
+  background-attachment: fixed;
 }
 
-html {
-    font-size: var(--font-size-base);
+/* --- Connect Page Specific Styles --- */
+main#connectPage {
+  height: 100%;
 }
 
-body {
-    font-family: var(--font-primary);
-    background-color: var(--primary-dark);
-    color: var(--text-primary);
-    line-height: 1.6;
+.connect-container {
+  max-width: 600px;
+  padding: 2rem;
 }
 
-/* --- Layout --- */
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 1rem;
+.main-title {
+  font-weight: 700;
+  font-size: 2.8rem;
+  color: var(--text-primary);
 }
 
-/* --- Connect Wallet Card --- */
-.connect-card {
-    background-color: var(--primary-medium);
-    padding: 2.5rem 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    text-align: center;
-    max-width: 500px;
-    width: 100%;
-    border: 1px solid rgba(210, 193, 182, 0.2);
+.lead-text {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
 }
 
-.connect-card__title {
-    font-size: 2rem;
-    font-weight: var(--font-weight-bold);
-    margin-bottom: 0.5rem;
+/* --- General Component Styles (Reusable) --- */
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--primary-color);
+  border: none;
+  padding: 12px 30px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
 
-.connect-card__subtitle {
-    font-size: 1rem;
-    font-weight: var(--font-weight-light);
-    margin-bottom: 2rem;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+  box-shadow: 0 0 15px var(--secondary-color);
+  transform: translateY(-2px);
 }
 
-/* --- Buttons --- */
-.btn {
-    padding: 0.8rem 1.5rem;
-    border: none;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    font-weight: var(--font-weight-bold);
-    font-size: 1rem;
-    transition: all var(--transition-speed);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+.btn-primary:disabled {
+    background-color: #555;
+    cursor: not-allowed;
 }
 
-.btn--primary {
-    background-color: var(--accent-light);
-    color: var(--text-secondary);
-}
-
-.btn--primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* --- Utility --- */
-.error-message {
-    margin-top: 1rem;
-    color: var(--error-color);
-    font-size: 0.9rem;
-}
-
-/* =================================
-   Modal Styles
-   ================================= */
+/* --- Modal Styles --- */
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: none; /* Hidden by default */
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1050;
 }
 
 .modal-overlay.show {
-    display: flex;
-    opacity: 1;
+  opacity: 1;
+  visibility: visible;
 }
 
-.modal {
-    background-color: var(--bg-color-light);
-    border-radius: 8px;
-    width: 90%;
-    max-width: 450px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transform: scale(0.95);
-    transition: transform 0.3s ease;
+.modal-content {
+  background-color: #2c3e50; /* Darker card background */
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
 }
 
-.modal-overlay.show .modal {
+.modal-overlay.show .modal-content {
     transform: scale(1);
 }
 
-.modal__header {
-    padding: 1rem 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--border-color);
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    color: var(--text-color-light);
+.modal-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Modal Header Variants */
-.modal__header--error {
-    background-color: var(--color-error);
-}
-.modal__header--success {
-    background-color: var(--color-success);
-}
-.modal__header--info {
-    background-color: var(--bg-color-medium);
+.modal-header--info { background-color: var(--primary-color); }
+.modal-header--success { background-color: var(--success-color); }
+.modal-header--error { background-color: var(--error-color); }
+
+.modal-title {
+  color: var(--text-primary);
+  margin-bottom: 0;
 }
 
-/* --- Responsive Design --- */
-@media (max-width: 768px) {
-    .connect-card__title {
-        font-size: 1.8rem;
-    }
-    .connect-card__subtitle {
-        font-size: 0.9rem;
-    }
+.btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%); /* Make default bootstrap close button white */
+}
+
+.modal-body {
+  padding: 1.5rem;
+  color: var(--text-secondary);
 }
