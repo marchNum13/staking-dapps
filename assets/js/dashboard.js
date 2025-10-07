@@ -35,6 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalMessage = document.getElementById('modalMessage');
     const modalCloseBtn = document.getElementById('modalCloseBtn');
 
+    // Sidebar Elements
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    const sidebarToggleBtn = document.getElementById('sidebarToggleBtn');
+    const sidebarCloseBtn = document.getElementById('sidebarCloseBtn');
+
     /**
      * Main initialization function
      */
@@ -143,6 +149,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (event.target === modalOverlay) hideModal();
         });
 
+        // Sidebar event listeners
+        sidebarToggleBtn.addEventListener('click', toggleSidebar);
+        sidebarCloseBtn.addEventListener('click', toggleSidebar);
+        sidebarOverlay.addEventListener('click', toggleSidebar);
+
         if (window.ethereum) {
             window.ethereum.on('accountsChanged', (accounts) => {
                 if (accounts.length === 0) {
@@ -165,6 +176,14 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.removeItem('walletConnected');
         localStorage.removeItem('userAddress');
         window.location.href = 'index.html';
+    }
+
+    /**
+     * Toggles the visibility of the sidebar.
+     */
+    function toggleSidebar() {
+        sidebar.classList.toggle('open');
+        sidebarOverlay.classList.toggle('open');
     }
 
     function formatTokens(amount) {
