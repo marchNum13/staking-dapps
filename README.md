@@ -55,8 +55,8 @@ To run this project in your local environment, follow these steps:
    * Copy the ABIs (Application Binary Interface) from **ChronoLock.sol** and **Staking.sol** into the **contracts.json** file located in the project's root directory. The structure should be as follows:
     ```
     {  
-    "chronoLockABI": [ ... ABI for ChronoLock ... ],  
-    "stakingABI": [ ... ABI for Staking ... ]  
+        "chronoLockABI": [ ... ABI for ChronoLock ... ],  
+        "stakingABI": [ ... ABI for Staking ... ]  
     }
     ```
 5. **Run the Application**  
