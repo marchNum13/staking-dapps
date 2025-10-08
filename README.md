@@ -37,8 +37,8 @@ To run this project in your local environment, follow these steps:
 ### **Steps**
 1. **Clone the Repository**  
     ```
-    git clone https://github.com/your-username/your-repo-name.git  
-    cd your-repo-name
+    git clone https://github.com/marchNum13/staking-dapps.git  
+    cd staking-dapps
     ```
 2. **Deploy the Smart Contracts**  
    * Deploy the **ChronoLock.sol** and **Staking.sol** Contracts to your preferred blockchain network (e.g., BNB Smart Chain Mainnet or Testnet).  
