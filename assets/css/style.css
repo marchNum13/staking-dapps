@@ -550,3 +550,44 @@ main.container {
          width: 100%;
      }
 }
+
+/* ==============================================
+   FAUCET PAGE SPECIFIC STYLES
+   ============================================== */
+
+.faucet-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 2rem;
+}
+
+.faucet-card {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 2.5rem;
+    max-width: 600px;
+    width: 100%;
+}
+
+.faucet-status {
+    min-height: 24px; /* Memberi ruang agar layout tidak "loncat" saat pesan muncul */
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.faucet-status.status-info {
+    color: var(--text-secondary);
+}
+
+.faucet-status.status-success {
+    color: var(--success-color);
+    font-weight: 500;
+}
+
+.faucet-status.status-error {
+    color: var(--error-color);
+    font-weight: 500;
+}
