@@ -388,3 +388,165 @@ main.container {
         display: none; /* Hide brand on very small screens to avoid clutter */
     }
 }
+
+/* ==============================================
+   STAKING PAGE SPECIFIC STYLES
+   ============================================== */
+
+.stake-pool-card {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stake-pool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.pool-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pool-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.pool-apr {
+    background-color: rgba(58, 123, 213, 0.2);
+    color: var(--primary-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.pool-body {
+    padding: 1.5rem;
+    flex-grow: 1;
+}
+
+.wallet-balance-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.pool-body .form-control {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+    border-right: none;
+}
+
+.pool-body .form-control:focus {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-color: var(--primary-color);
+    color: var(--text-primary);
+    box-shadow: none;
+}
+
+.pool-body .input-group .btn {
+    border-color: var(--border-color);
+}
+
+.estimated-reward {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.pool-footer {
+    padding: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+
+/* --- My Stakes Card List Styles (Baru) --- */
+.stake-position-card {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Izinkan wrap untuk mobile */
+    gap: 1rem;
+}
+
+.stake-position-card .info-group {
+    flex: 1;
+    min-width: 150px; /* Lebar minimum untuk setiap grup info */
+}
+
+.stake-position-card .info-label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+}
+
+.stake-position-card .info-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.stake-position-card .action-group {
+    flex-shrink: 0; /* Mencegah grup aksi mengecil */
+    text-align: right;
+}
+
+
+.status-locked {
+    color: #f39c12; /* Orange */
+}
+.status-unlocked {
+    color: var(--success-color); /* Green */
+}
+.status-claimed {
+    color: var(--text-secondary); /* Gray */
+}
+
+@media (max-width: 767.98px) {
+    .stake-position-card {
+        flex-direction: column;
+        align-items: stretch; /* Buat semua item selebar kartu */
+    }
+
+    .stake-position-card .info-group {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 0.75rem;
+        margin-bottom: 0.75rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .stake-position-card .info-group:last-of-type {
+       border-bottom: none;
+       margin-bottom: 0;
+       padding-bottom: 0;
+    }
+    
+    .stake-position-card .action-group {
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+     .stake-position-card .action-group .btn {
+         width: 100%;
+     }
+}
